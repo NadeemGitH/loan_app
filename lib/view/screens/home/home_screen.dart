@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:waleed_project/widgets/custom_botton.dart';
+import 'package:get/get.dart';
+
+import '../loan/loan_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,13 +21,14 @@ class HomeScreen extends StatelessWidget {
                   decoration: const BoxDecoration(
                     color: Colors.deepPurple,
                   ),
-                  height: 200,
+                  height: Get.height * 0.28,
                   width: double.maxFinite,
                   child: Container(
-                    padding: EdgeInsets.only(bottom: 70, left: 40),
+                    padding: EdgeInsets.only(
+                        bottom: Get.height * 0.07, left: Get.width * 0.17),
                     child: Row(
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           'Welcome',
                           style: TextStyle(
                               color: Colors.white,
@@ -33,9 +37,9 @@ class HomeScreen extends StatelessWidget {
                               letterSpacing: 1),
                         ),
                         SizedBox(
-                          width: 10,
+                          width: Get.width * 0.03,
                         ),
-                        Text('God\'s Favorites',
+                        const Text('God\'s Favorites',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
@@ -46,11 +50,11 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           Positioned(
-            top: 100,
-            left: 42,
+            top: Get.height * 0.14,
+            left: Get.width * 0.13,
             child: Container(
-              height: 180,
-              width: 270,
+              height: Get.height * 0.23,
+              width: Get.width * 0.76,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -63,41 +67,49 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 34.0, vertical: 15),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width * 0.10, vertical: Get.height * 0.015),
                 child: Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text('Credit Limit'),
-                        SizedBox(
-                          width: 60,
+                      children: [
+                        const Text(
+                          'Credit Limit',
                         ),
-                        Text('GHC 100.0'),
+                        SizedBox(
+                          width: Get.width * 0.16,
+                        ),
+                        const Text(
+                          'GHC 100.0',
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
                       ],
                     ),
                     SizedBox(
-                      height: 30,
+                      height: Get.height * 0.04,
                     ),
                     const Text(
                         'Get it delivered to your account in less then two minutes'),
                     SizedBox(
-                      height: 20,
+                      height: Get.height * 0.03,
                     ),
                     CustomButton(
                         fontSize: 17,
-                        width: 140,
-                        height: 40,
+                        width: Get.width * 0.4,
+                        height: Get.height * 0.054,
                         text: 'Apply Now',
-                        onPressed: () {}),
+                        onPressed: () {
+                          Get.to(() => LoanScreen());
+                        }),
                   ],
                 ),
               ),
             ),
           ),
           Positioned(
-            top: 300,
+            top: Get.height * 0.4,
             child: Column(
               children: const [
                 Icon(
@@ -109,20 +121,20 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 370,
+            top: Get.height * 0.49,
             child: Column(
               children: [
                 SizedBox(
-                  height: 170,
-                  width: 400,
+                  height: Get.height * 0.22,
+                  width: Get.width * 0.99,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 200,
+                    itemCount: 10,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                        height: 70,
-                        width: 260,
+                        margin: EdgeInsets.symmetric(horizontal: 8.0),
+                        height: Get.height * 0.03,
+                        width: Get.width * 0.7,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.deepPurple,
@@ -139,59 +151,70 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 10,
-              left: 20,
+              bottom: Get.height * 0.03,
+              left: Get.width * 0.05,
               child: Container(
-            color: Colors.white,
-                height: 80,
-                width: 320,
+                color: Colors.white,
+                height: Get.height * 0.099,
+                width: Get.height * 0.44,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Column(
                       children: const [
-                        Text('Services',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+                        Text(
+                          'Services',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 3,),
                     SizedBox(
-                      height: 50,
+                      height: Get.height * 0.001,
+                    ),
+                    SizedBox(
+                      height: Get.height * 0.07,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            height: 48,
-                            width: 55,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/images/money.jpg'),
-                                  fit: BoxFit.cover,
-                                ),
-                                color: Colors.white,
+                            height: Get.height * 0.07,
+                            width: Get.height * 0.07,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/images/money.jpg'),
+                                fit: BoxFit.cover,
                               ),
-
+                              color: Colors.white,
+                            ),
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: const [
-                              Text(' Always Refused?',style: TextStyle(fontWeight: FontWeight.w500),),
-                              Text(' check your credit here.\n recommend more platform',style: TextStyle(fontWeight: FontWeight.w300)),
+                              Text(
+                                ' Always Refused?',
+                                style: TextStyle(fontWeight: FontWeight.w500),
+                              ),
+                              Text(
+                                  ' check your credit here.\n recommend more platform',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.w300)),
                             ],
                           ),
                           CustomButton(
                               fontSize: 12,
-                              height: 30,
-                              width: 70,
-                              text: "Check", onPressed: (){}),
+                              height: Get.height * 0.04,
+                              width: Get.width * 0.2,
+                              text: "Check",
+                              onPressed: () {}),
                         ],
                       ),
-
                     ),
                   ],
                 ),
-          ))
+              ))
         ],
       ),
     );

@@ -3,14 +3,21 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool showBackButton;
+  final Color? backgroundColor;
 
-   const CustomAppBar({Key? key, required this.title,  this.showBackButton=false}) : super(key: key);
+  CustomAppBar({
+    Key? key,
+    required this.title,
+    this.showBackButton = false,
+    this.backgroundColor =
+        Colors.white, // Set default background color to white
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: true,
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColor,
       title: Text(
         title,
         style: TextStyle(color: Colors.black),
@@ -20,9 +27,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       iconTheme: IconThemeData(color: Colors.black),
       leading: showBackButton
           ? IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () => Navigator.of(context).pop(),
-      ) : null,
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.of(context).pop(),
+            )
+          : null,
     );
   }
 

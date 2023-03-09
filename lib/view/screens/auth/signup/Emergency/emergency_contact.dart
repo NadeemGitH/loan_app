@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:waleed_project/widgets/custom_botton.dart';
 import 'package:waleed_project/widgets/custom_text_field.dart';
 import 'package:get/get.dart';
-import '../../../widgets/custom_appbar.dart';
-import '../wallet/wallet_screen.dart';
+
+import '../../../../../widgets/custom_appbar.dart';
+import '../../../wallet/wallet_screen.dart';
 
 class EmergencyContactScreen extends StatelessWidget {
   final TextEditingController _memberOneNameController =
@@ -32,7 +33,7 @@ class EmergencyContactScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         title: 'Emergency Contact',
         showBackButton: true,
       ),
@@ -123,7 +124,6 @@ class EmergencyContactScreen extends StatelessWidget {
                 ),
                 CustomTextField(
                   keyboardType: TextInputType.numberWithOptions(),
-
                   validate: (value) {
                     if (value!.isEmpty) {
                       return 'Required!';
@@ -174,7 +174,6 @@ class EmergencyContactScreen extends StatelessWidget {
                 ),
                 CustomTextField(
                   keyboardType: TextInputType.numberWithOptions(),
-
                   validate: (value) {
                     if (value!.isEmpty) {
                       return 'Required!';

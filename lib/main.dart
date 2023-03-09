@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:waleed_project/view/screens/auth/login_screen.dart';
-import 'package:waleed_project/view/screens/personal_info_screen/personal_info_screen.dart';
 import 'package:get/get.dart';
-import 'package:waleed_project/view/screens/wallet/wallet_screen.dart';
 
 import 'controller/drop_down_controller.dart';
 import 'helper/binding.dart';
 
 Future<void> main() async {
   Get.put(() => DropDownController());
-  Get.lazyPut(()=>DropDownController());
+  Get.lazyPut(() => DropDownController());
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
@@ -28,8 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  LoginScreen(),
+      home: LoginScreen(),
     );
   }
 }
-

@@ -9,8 +9,7 @@ import '../../../widgets/custom_appbar.dart';
 import '../../../widgets/custom_drop_down.dart';
 
 class MobileWalletScreen extends StatefulWidget {
-
-   MobileWalletScreen({Key? key}) : super(key: key);
+  MobileWalletScreen({Key? key}) : super(key: key);
 
   @override
   State<MobileWalletScreen> createState() => _MobileWalletScreenState();
@@ -28,7 +27,7 @@ class _MobileWalletScreenState extends State<MobileWalletScreen> {
     DropDownController walletController = Get.find();
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         title: 'Mobile Wallet',
         showBackButton: true,
       ),
@@ -46,36 +45,43 @@ class _MobileWalletScreenState extends State<MobileWalletScreen> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(width: 0.5)
-                  ),
+                      border: Border.all(width: 0.5)),
                   padding: EdgeInsets.all(16.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Obx(() => Text(  walletController.wallet.isEmpty ? "MTN" : "${walletController.wallet}",
-                        style: const TextStyle(fontSize: 18.0,color:Color(
-                            0xff747070)),)),
+                      Obx(() => Text(
+                            walletController.wallet.isEmpty
+                                ? "MTN"
+                                : "${walletController.wallet}",
+                            style: const TextStyle(
+                                fontSize: 18.0, color: Color(0xff747070)),
+                          )),
                       GestureDetector(
-                        onTap: (){
-                          showModalBottomSheet(
-                            shape: const RoundedRectangleBorder( // <-- SEE HERE
-                              borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(30.0),
+                          onTap: () {
+                            showModalBottomSheet(
+                              shape: const RoundedRectangleBorder(
+                                // <-- SEE HERE
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(30.0),
+                                ),
                               ),
-                            ),
-                            context: context,
-                            builder: (BuildContext context) {
-                              return CustomBottomSheet(
-                                height: 200,
-                                title: Text(''),
-                                items: const ["LTA", "BPL", "PSL"],
-                                onItemSelected: walletController.wallet,
-                                shouldPop: true,
-                              );
-                            },
-                          );
-                        },
-                          child: Icon(Icons.arrow_drop_down,color: Colors.black,))
+                              context: context,
+                              builder: (BuildContext context) {
+                                return CustomBottomSheet(
+                                  height: 200,
+                                  title: Text(''),
+                                  items: const ["LTA", "BPL", "PSL"],
+                                  onItemSelected: walletController.wallet,
+                                  shouldPop: true,
+                                );
+                              },
+                            );
+                          },
+                          child: Icon(
+                            Icons.arrow_drop_down,
+                            color: Colors.black,
+                          ))
                     ],
                   ),
                 ),
@@ -111,8 +117,8 @@ class _MobileWalletScreenState extends State<MobileWalletScreen> {
                 ),
                 const Text(
                   'Please Set a 4 digit passcode to enter login into your account',
-                  style:
-                      TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: Get.height * 0.05,
@@ -158,7 +164,7 @@ class _MobileWalletScreenState extends State<MobileWalletScreen> {
                           _areaController.text.trim();
                           _nearestController.text.trim();
                         }
-                       // Get.to(() => const EmployeeInfroScreen());
+                        // Get.to(() => const EmployeeInfroScreen());
                       }),
                 ),
                 SizedBox(
